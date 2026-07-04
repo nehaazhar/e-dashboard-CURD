@@ -1,0 +1,48 @@
+I built a full-stack Product Management application using Node.js, Express, and MongoDB.
+The application allows users to register and log in using JWT-based authentication.
+Authenticated users can create, update, delete, and view products.
+I implemented advanced filtering features such as search by product name, filter by company, category, and also filter products by specific users.
+I used middleware for token verification and route protection to ensure secure access.
+The backend follows REST API principles and uses Mongoose for database modeling.
+
+
+- What was your role?
+I handled the complete backend development.
+I designed the database schema, implemented authentication, built secure APIs, and added filtering and search functionality.
+I also tested the APIs using Postman.
+
+- How did you implement authentication?
+I implemented JWT-based authentication.
+After login, the server generates a token.
+That token is stored on the client side and sent in headers for protected routes.
+I created a custom middleware called verifyToken to validate the token before accessing secure APIs.
+
+- How did you implement filtering?
+I used query parameters in Express to implement dynamic filtering.
+Based on the query values like search, company, category, and user ID, I dynamically created a MongoDB filter object.
+I also used regular expressions for case-insensitive search functionality.
+
+- What challenges did you face?
+Initially, I faced an issue while filtering products by user because I was comparing the user name instead of the ObjectId.
+Later, I fixed it by correctly filtering using the MongoDB ObjectId and using populate for relational data.
+
+- What did you learn from this project?
+This project helped me understand backend architecture, authentication security, database relationships, middleware usage, and clean API design.
+I also improved my debugging skills while handling filtering and token validation issues.
+
+Overall, this project strengthened my backend development skills and improved my understanding of building secure and scalable REST APIs.
+
+
+
+Login Details
+Neha@gmail.com
+neha@123
+
+noah@gmailcom
+Noah@123
+
+george@gmail.com
+george@123
+
+olivia@gmail.com
+olivia@123
