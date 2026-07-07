@@ -52,13 +52,11 @@ app.post("/register", async (req, resp) => {
       resp.send({ result, auth: token });
     });
   } catch (error) {
-    resp
-      .status(500)
-      .send({
-        success: false,
-        message: "Error registering user",
-        error: error.message,
-      });
+    resp.status(500).send({
+      success: false,
+      message: "Error registering user",
+      error: error.message,
+    });
   }
 });
 
@@ -240,4 +238,6 @@ function verifyToken(req, resp, next) {
   }
 }
 
-app.listen(5100);
+app.listen(process.env.PORT || 5100, () => {
+  console.log(`Server is running on port ${process.env.PORT || 5100}`);
+});
