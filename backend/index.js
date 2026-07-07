@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const CryptoJS = require("crypto-js");
@@ -7,8 +8,7 @@ require("./db/config");
 const User = require("./db/users");
 const Product = require("./db/Product");
 const Jwt = require("jsonwebtoken");
-const JwtKey = "e-comm";
-
+const JwtKey = process.env.JWT_SECRET; // Use environment variable
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -23,10 +23,15 @@ app.use((req, res, next) => {
   next();
 });
 
+// Basic root route for testing
+app.get("/", (req, res) => {
+  res.send("Welcome to E-Commerce Product Management API!");
+});
+
 app.post("/register", async (req, resp) => {
   try {
     // Encrypt the password
-    const secretKey = "A4&k$29@3zD1#qL"; // Replace this with a strong, securely stored key
+    const secretKey = process.env.CRYPTO_SECRET_KEY; // Use environment variable
     const encryptedPassword = CryptoJS.AES.encrypt(
       req.body.password,
       secretKey,
