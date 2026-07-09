@@ -32,6 +32,11 @@ I also improved my debugging skills while handling filtering and token validatio
 
 Overall, this project strengthened my backend development skills and improved my understanding of building secure and scalable REST APIs.
 
+Render - https://e-dashboard-curd-frontend.onrender.com/
+https://dashboard.render.com/static/srv-d97qm658nd3s73e98m50/events
+
+https://github.com/nehaazhar/e-dashboard-CURD
+
 
 
 Login Details
