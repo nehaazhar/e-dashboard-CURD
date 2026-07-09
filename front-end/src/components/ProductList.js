@@ -62,7 +62,6 @@ const ProductList = () => {
     getProducts();
   }, [debouncedSearch, selectedCategory, selectedCompany, selectedUser]);
 
-  // 1. Fixed: Double quotes ko hata kar backticks lagaye hain
   useEffect(() => {
     fetch(`${API_BASE_URL}/categories`, {
       headers: {
@@ -73,7 +72,6 @@ const ProductList = () => {
       .then((data) => setCategories(data));
   }, []);
 
-  // 2. Fixed: Double quotes ko hata kar backticks lagaye hain
   useEffect(() => {
     fetch(`${API_BASE_URL}/companies`, {
       headers: {
@@ -84,7 +82,6 @@ const ProductList = () => {
       .then((data) => setCompanies(data));
   }, []);
 
-  // 3. Fixed: Double quotes ko hata kar backticks lagaye hain
   useEffect(() => {
     fetch(`${API_BASE_URL}/users`, {
       headers: {

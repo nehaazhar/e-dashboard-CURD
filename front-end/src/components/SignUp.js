@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CryptoJS from "crypto-js";
-import { API_BASE_URL } from "../config"; // 1. Yeh import line top par add kar di hai
+import { API_BASE_URL } from "../config";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -24,7 +24,6 @@ const SignUp = () => {
       "A4&k$29@3zD1#qL",
     ).toString();
 
-    // 2. Localhost hata kar central API_BASE_URL aur backticks use kar liye hain
     let result = await fetch(`${API_BASE_URL}/register`, {
       method: "post",
       body: JSON.stringify({ name, email, encryptedPassword }),

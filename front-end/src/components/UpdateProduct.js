@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { API_BASE_URL } from "../config"; // 1. Nayi import line add kar di hai
+import { API_BASE_URL } from "../config";
 
 const EditProduct = ({
   product,
@@ -29,7 +29,6 @@ const EditProduct = ({
     }
 
     try {
-      // 2. Localhost hata kar central configuration variable ka use kiya hai
       let response = await fetch(`${API_BASE_URL}/product/${product._id}`, {
         method: "PUT",
         body: JSON.stringify({ name, price, category, company }),

@@ -8,7 +8,7 @@ require("./db/config");
 const User = require("./db/users");
 const Product = require("./db/Product");
 const Jwt = require("jsonwebtoken");
-const JwtKey = process.env.JWT_SECRET; // Use environment variable
+const JwtKey = process.env.JWT_SECRET;
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -23,7 +23,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Basic root route for testing
 app.get("/", (req, res) => {
   res.send("Welcome to E-Commerce Product Management API!");
 });
@@ -31,13 +30,12 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, resp) => {
   try {
     // Encrypt the password
-    const secretKey = process.env.CRYPTO_SECRET_KEY; // Use environment variable
+    const secretKey = process.env.CRYPTO_SECRET_KEY;
     const encryptedPassword = CryptoJS.AES.encrypt(
       req.body.password,
       secretKey,
     ).toString();
 
-    // Replace the plaintext password with the encrypted one
     let userData = {
       ...req.body,
       password: encryptedPassword,
@@ -48,8 +46,6 @@ app.post("/register", async (req, resp) => {
     result = result.toObject();
     delete result.password;
 
-    // Respond without sending back the encrypted password
-    // resp.status(201).send({ success: true, message: "User registered successfully", data: result });
     Jwt.sign({ result }, JwtKey, { expiresIn: "2h" }, (err, token) => {
       if (err) {
         resp.send({ result: "something went wrong" });
